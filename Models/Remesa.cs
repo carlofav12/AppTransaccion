@@ -12,14 +12,14 @@ namespace AppTransaccion.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public String Id { get; set; }
-        public String NRemitente { get; set; }
-        public String NDestinatario { get; set; }
-        public String PaisOrigen { get; set; }
-        public String PaisDestino { get; set; }
+        public int Id { get; set; }
+        public string NRemitente { get; set; }
+        public string NDestinatario { get; set; }
+        public string PaisOrigen { get; set; }
+        public string PaisDestino { get; set; }
         public double MontoOrigen { get; set; }
         public double TasaCambio { get; set; }
         public double MontoDestino { get; set; }
-        public String EstadoTran { get; set; }
+        public string EstadoTran { get; set; }
     }
 }

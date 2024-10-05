@@ -10,5 +10,5 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
-    public DbSet<Remesa> Remesas { get; set; }
+    public DbSet<Remesa> DataRemesas { get; set; }
 }
