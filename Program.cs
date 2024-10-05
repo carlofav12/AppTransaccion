@@ -9,6 +9,8 @@ var connectionString = builder.Configuration.GetConnectionString("Postgress") ??
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+// CoinMarketCap API
+builder.Services.AddCoinMarketCapAPI(apiKey: "4c9ffc41-5f08-4d12-820e-6bb2981df44b");
 /* // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
