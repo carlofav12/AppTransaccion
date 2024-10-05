@@ -1,0 +1,44 @@
+@model AppTransaccion.ViewModel.RemesaViewModel
+
+@{
+    ViewData["Title"] = "Lista de Remesa";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.ListRemesa != null && Model.ListRemesa.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N° Remitente</th>
+                <th>N° Destinatario</th>
+                <th>País Origen</th>
+                <th>País Destino</th>
+                <th>Monto Origen</th>
+                <th>Tasa de Cambio</th>
+                <th>Monto Destino</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var remesa in Model.ListRemesa)
+            {
+                <tr>
+                    <td>@remesa.NRemitente</td>
+                    <td>@remesa.NDestinatario</td>
+                    <td>@remesa.PaisOrigen</td>
+                    <td>@remesa.PaisDestino</td>
+                    <td>@remesa.MontoOrigen</td>
+                    <td>@remesa.TasaCambio</td>
+                    <td>@remesa.MontoDestino</td>
+                    <td>@remesa.EstadoTran</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay remesas registradas.</p>
+}
