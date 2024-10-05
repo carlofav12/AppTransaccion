@@ -4,10 +4,17 @@ using AppTransaccion.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//postgresql
+var connectionString = builder.Configuration.GetConnectionString("Postgress") ?? throw new InvalidOperationException("Connection string 'Postgress' not found.");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
+// CoinMarketCap API
+builder.Services.AddCoinMarketCapAPI(apiKey: "4c9ffc41-5f08-4d12-820e-6bb2981df44b");
+/* // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseSqlite(connectionString)); */
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

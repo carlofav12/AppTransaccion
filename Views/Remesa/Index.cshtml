@@ -1,0 +1,65 @@
+@model AppTransaccion.ViewModel.RemesaViewModel
+
+@{
+    ViewData["Title"] = "Registrar Remesa";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-success" style="color: darkgreen; text-align: center;">
+        @ViewData["Message"]
+    </div>
+}
+
+<div>
+    <form asp-controller="Remesa" asp-action="Registrar" method="post">
+
+        <div class="form-group">
+            <label asp-for="FormRemesa.NRemitente">Nombre del Remitente</label>
+            <input asp-for="FormRemesa.NRemitente" class="form-control" />
+            <span asp-validation-for="FormRemesa.NRemitente" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FormRemesa.NDestinatario">Nombre del Destinatario</label>
+            <input asp-for="FormRemesa.NDestinatario" class="form-control" />
+            <span asp-validation-for="FormRemesa.NDestinatario" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FormRemesa.PaisOrigen">Pais Origen del Remitente</label>
+            <input asp-for="FormRemesa.PaisOrigen" class="form-control" />
+            <span asp-validation-for="FormRemesa.PaisOrigen" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FormRemesa.PaisDestino">Pais Destino del Destinatario</label>
+            <input asp-for="FormRemesa.PaisDestino" class="form-control" />
+            <span asp-validation-for="FormRemesa.PaisDestino" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FormRemesa.MontoOrigen">Monto a Enviar (USD o BTC)</label>
+            <input asp-for="FormRemesa.MontoOrigen" type="number" step="0.01" class="form-control" />
+            <span asp-validation-for="FormRemesa.MontoOrigen" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FormRemesa.TasaCambio">Tasa de Cambio</label>
+            <input asp-for="FormRemesa.TasaCambio" type="number" step="0.01" class="form-control" />
+            <span asp-validation-for="FormRemesa.TasaCambio" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FormRemesa.MontoDestino">Monto Final</label>
+            <input asp-for="FormRemesa.MontoDestino" type="number" step="0.01" class="form-control" />
+            <span asp-validation-for="FormRemesa.MontoDestino" class="text-danger"></span>
+        </div>
+
+        <input type="hidden" asp-for="FormRemesa.EstadoTran" value="En Progreso" /></br>
+
+        <button type="submit" class="btn btn-primary">Registrar Remesa</button>
+    </form>
+</div>
